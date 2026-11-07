@@ -1,0 +1,23 @@
+<%@ page import="com.ptit.garaman.util.Fmt1, com.ptit.garaman.model.Member1" %>
+<%
+    String ctx = request.getContextPath();
+    Member1 me = (Member1) session.getAttribute("member");
+%>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= Fmt1.esc(pageTitle) %> - GaraMan</title>
+<link rel="stylesheet" href="<%= ctx %>/assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <span class="brand">GaraMan</span>
+  <% if (me != null) { %>
+  <span class="who">Xin chào, <b><%= Fmt1.esc(me.getName()) %></b>
+    &nbsp;|&nbsp; <a href="<%= ctx %>/logout1.jsp">Đăng xuất</a></span>
+  <% } %>
+</header>
+<main class="card">
+<h1><%= Fmt1.esc(pageTitle) %></h1>
